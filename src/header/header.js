@@ -1,8 +1,3 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import "./index.css";
-//import { Header } from "./header/header.js";
-
 const Header = props => {
   const renderHeaderRightElements = elements => {
     return elements.map(element => {
@@ -57,23 +52,4 @@ const Header = props => {
     </div>
   );
 };
-
-class Main extends React.Component {
-  render() {
-    return <div>Hello its main part</div>;
-  }
-}
-class App extends React.Component {
-  render() {
-    return (
-      <div>
-        <Header />
-        <Main />
-      </div>
-    );
-  }
-}
-
-// ========================================
-
-ReactDOM.render(<App />, document.getElementById("root"));
+export default Header;
