@@ -1,0 +1,45 @@
+body {
+  margin: 0;
+}
+@style : varela round,sans-serif;
+@padding :0 20% 0 20%;
+a {
+  text-decoration: none;
+}
+// elements Style
+.mobile-header {
+  display: none;
+  color: red;
+}
+.computer-header {
+  background: #34302d;
+  border-top: 4px solid #6db23f;
+  justify-content: space-between;
+  padding: @padding;
+  display: flex;
+  flex-direction: row;
+  &_left-part {
+    &__logo-container {
+      &__img {
+        width: 224px;
+        height: 46px;
+      }
+    }
+  }
+  &_right-part {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    .nav {
+      color: white;
+      font-family: @style;
+      padding: 0px 7px 0px 7px;
+    }
+    .search-btn {
+      width: 25px;
+      height: 25px;
+      background: #34302d;
+      padding-top: 5px;
+    }
+  }
+}
