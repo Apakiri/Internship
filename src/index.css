@@ -3,18 +3,60 @@ body {
 }
 a {
   text-decoration: none;
+  color: white;
 }
 .mobile-header {
   display: none;
-  color: red;
+  background: #34302d;
+}
+.mobile-header button {
+  background: #34302d;
+  border: none;
+  position: absolute;
+  left: 0px;
+  top: 12px;
+}
+.mobile-header .MobileSearchBar {
+  background: black;
+  color: white;
+  height: 100%;
+  position: absolute;
+  left: -270px;
+  width: 270px;
+}
+.mobile-header .MobileSearchBar input {
+  background: red;
+  border: none;
+}
+@media (max-width: 1000px) {
+  .mobile-header {
+    display: flex;
+    justify-content: center;
+  }
+}
+@media (max-width: 600px) {
+  .mobile-header {
+    display: flex;
+    justify-content: center;
+  }
 }
 .computer-header {
   background: #34302d;
   border-top: 4px solid #6db23f;
   justify-content: space-between;
-  padding: 0 20% 0 20%;
+  padding: 0 10% 0 10%;
   display: flex;
   flex-direction: row;
+}
+@media (max-width: 1000px) {
+  .computer-header {
+    display: none;
+  }
+}
+@media (max-width: 600px) {
+  .computer-header {
+    display: none;
+  }
 }
 .computer-header_left-part__logo-container__img {
   width: 224px;
@@ -26,13 +68,60 @@ a {
   align-items: center;
 }
 .computer-header_right-part .nav {
-  color: white;
+  line-height: 54px;
   font-family: varela round, sans-serif;
   padding: 0px 7px 0px 7px;
+}
+.computer-header_right-part .nav_btn {
+  line-height: 54px;
+  position: relative;
+  top: 8px;
+}
+.computer-header_right-part .nav:hover {
+  background: #6db23f;
 }
 .computer-header_right-part .search-btn {
   width: 25px;
   height: 25px;
   background: #34302d;
   padding-top: 5px;
+}
+.main {
+  padding: 0 10% 0 10%;
+  font-family: varela round, sans-serif;
+}
+.main .projectCardsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.main .projectCardsContainer__img_sizes {
+  width: 80px;
+  height: 80px;
+}
+.main .projectCardsContainer__EachCard {
+  display: flex;
+  border: 1px solid gray;
+  flex-direction: column;
+  align-items: center;
+  width: 30%;
+  margin-bottom: 15px;
+}
+@media (max-width: 1000px) {
+  .main .projectCardsContainer__EachCard {
+    width: 45%;
+  }
+}
+@media (max-width: 600px) {
+  .main .projectCardsContainer__EachCard {
+    width: 100%;
+  }
+}
+.main .projectCardsContainer__EachCard__descripion {
+  text-align: center;
+  padding-bottom: 30px;
+}
+.main .projectCardsContainer__EachCard__title {
+  text-align: center;
+  font-weight: 700;
 }
