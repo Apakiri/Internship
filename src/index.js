@@ -1,79 +1,19 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-//import { Header } from "./header/header.js";
+import Header from "./components/Header/Header";
+import Main from "./components/Main/Main";
 
-const Header = props => {
-  const renderHeaderRightElements = elements => {
-    return elements.map(element => {
-      if (!element) {
-        return (
-          <a href="">
-            <img
-              className="search-btn"
-              src={require("./img/whitesearchicon.png")}
-              alt=""
-            />
-          </a>
-        );
-      } else {
-        let strName = element.toUpperCase();
-        return (
-          <a href="">
-            <div className="nav">{strName}</div>
-          </a>
-        );
-      }
-    });
-  };
-
-  const headerElements = [
-    "projects",
-    "guides",
-    "blog",
-    "training & certification",
-    ""
-  ];
-
-  return (
-    <div className="header">
-      <div className="computer-header">
-        <div className="computer-header_left-part">
-          <div className="computer-header_left-part__logo-container">
-            <a href="">
-              <img
-                className="computer-header_left-part__logo-container__img"
-                src={require("./img/photoeditorsdk-export.png")}
-                alt=""
-              />
-            </a>
-          </div>
-        </div>
-        <div className="computer-header_right-part">
-          {renderHeaderRightElements(headerElements)}
-        </div>
-      </div>
-      <div className="mobile-header"></div>
-    </div>
-  );
-};
-
-class Main extends React.Component {
-  render() {
-    return <div>Hello its main part</div>;
-  }
-}
 class App extends React.Component {
   render() {
     return (
-      <div>
+      <React.Fragment>
         <Header />
         <Main />
-      </div>
+      </React.Fragment>
     );
   }
 }
-
 // ========================================
 
 ReactDOM.render(<App />, document.getElementById("root"));
