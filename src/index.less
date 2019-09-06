@@ -1,14 +1,20 @@
 body {
   margin: 0;
+  background: #f1f1f1;
+}
+input {
+  outline: none;
 }
 @style : varela round,sans-serif;
 @padding :0 10% 0 10%;
+@transition: 500ms;
 a {
   text-decoration: none;
   color: white;
 }
 // elements Style
 .mobile-header {
+  height: 50px;
   button {
     background: #34302d;
     border: none;
@@ -16,16 +22,30 @@ a {
     left: 0px;
     top: 12px;
   }
-  .MobileSearchBar {
+  .mobileSearchBar {
     background: black;
     color: white;
     height: 100%;
     position: absolute;
     left: -270px;
     width: 270px;
-    input {
-      background: red;
+    transition: @transition;
+    &__nav {
+      line-height: 50px;
+    }
+    &__input {
       border: none;
+      line-height: 50px;
+      &__field {
+        width: 80%;
+        position: relative;
+        left:8%;
+        height: 30px;
+        font-size: 100%;
+      }
+    }
+    &_active {
+      left: 0px;
     }
   }
   display: none;
@@ -40,8 +60,24 @@ a {
   }
   &__logo {
   }
+  .btn-mobile {
+    transition: @transition;
+    outline: none;
+    &_active {
+      left: 270px;
+    }
+  }
+  .mobile-header-logo {
+    transition: @transition;
+    &_active {
+      left: 540px;
+      position: absolute;
+    }
+  }
 }
 .computer-header {
+  //position: absolute;
+  height: 50px;
   background: #34302d;
   border-top: 4px solid #6db23f;
   justify-content: space-between;
@@ -85,6 +121,28 @@ a {
       height: 25px;
       background: #34302d;
       padding-top: 5px;
+    }
+  }
+}
+.search-field {
+  height: 50px;
+  position: relative;
+  top: -104px;
+  &_active {
+    top: 0px;
+  }
+  &__search {
+    transition: 1s;
+    height: 100%;
+    width: 100%;
+    border: none;
+    padding: @padding;
+    background-color: white;
+    @media (max-width: 1000px) {
+      display: none;
+    }
+    @media (max-width: 600px) {
+      display: none;
     }
   }
 }

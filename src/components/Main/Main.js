@@ -1,5 +1,39 @@
 import React from "react";
-const Main = () => {
+
+class Main extends React.Component {
+  renderedCardsFixed = (cardsArray, searchString) => {
+    const filteredCardsArray =
+      searchString === ""
+        ? [...cardsArray]
+        : cardsArray.filter(item => item.title.includes(searchString));
+
+    if (filteredCardsArray) {
+      return filteredCardsArray.map(element => {
+        return (
+          <div className="projectCardsContainer__EachCard">
+            <div className="projectCardsContainer__EachCard__img">
+              <img
+                className="projectCardsContainer__img_sizes"
+                src={element.img_src}
+                alt=""
+              />
+            </div>
+            <div className="projectCardsContainer__EachCard__title">
+              <p>{element.title.toUpperCase()}</p>
+            </div>
+            <div className="projectCardsContainer__EachCard__descripion">
+              {element.description}
+            </div>
+          </div>
+        );
+      });
+    } else {
+      return <div className="nullResults">No results</div>;
+    }
+  };
+
+  render() {
+    const { searchString } = this.props;
     const cardsArray = [
       {
         img_src: require("../../img/photoeditorsdk-export (6).png"),
@@ -38,25 +72,7 @@ const Main = () => {
           "Supports the well-known Enterprise Integration Patterns via lightweight messaging and declarative adapters"
       }
     ];
-    const renderedCards = cardsArray.map(element => {
-      return (
-        <div className="projectCardsContainer__EachCard">
-          <div className="projectCardsContainer__EachCard__img">
-            <img
-              className="projectCardsContainer__img_sizes"
-              src={element.img_src}
-              alt=""
-            />
-          </div>
-          <div className="projectCardsContainer__EachCard__title">
-            <p>{(element.title).toUpperCase()}</p>
-          </div>
-          <div className="projectCardsContainer__EachCard__descripion">
-            {element.description}
-          </div>
-        </div>
-      );
-    });
+
     return (
       <div className="main">
         <h1 className="main__title">Main Projects</h1>
@@ -66,8 +82,12 @@ const Main = () => {
           Project to help you build it. Start small and use just what you need
           –Spring is modular by design
         </p>
-        <div className="projectCardsContainer">{renderedCards}</div>
+        <div className="projectCardsContainer">
+          {this.renderedCardsFixed(cardsArray, searchString)}
+        </div>
       </div>
     );
-  };
-  export default Main;
+  }
+}
+
+export default Main;
