@@ -1,9 +1,9 @@
 import React from "react";
-import { createStore, combineReducers } from "redux";
+import { createStore, combineReducers, compose } from "redux";
 import { connect } from "react-redux";
 import { login } from "./../../redux/actions/action";
 import { store } from "../../redux/store";
-import{App} from "../../index"
+import { App } from "../../index";
 import {
   BrowserRouter as Router,
   Route,
@@ -18,14 +18,15 @@ class Registration extends React.Component {
     // this.onSubmit = this.onSubmit.bind(this);
   }
 
-   onSubmit=(e)=> {
+  onSubmit = e => {
     const isAuth = this.props.login(this.state.username, this.state.password);
-    if(isAuth){
-      window.location.replace("http://localhost:3000/protected")
+    if (isAuth) {
+      this.props.history.push("/protected");
     }
-  }
+  };
 
   render() {
+    console.log(this.props);
     return (
       <React.Fragment>
         <div>
@@ -56,7 +57,13 @@ class Registration extends React.Component {
 const mapDispatchToProps = {
   login
 };
-export default connect(
+
+const withConnect = connect(
   null,
   mapDispatchToProps
+);
+
+export default compose(
+  withRouter,
+  withConnect
 )(Registration);

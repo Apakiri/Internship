@@ -1,4 +1,4 @@
-import React,{ Component } from "react";
+import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import { Provider } from "react-redux";
@@ -11,9 +11,10 @@ import {
   Route,
   Link,
   Redirect,
-  withRouter,
+  withRouter
 } from "react-router-dom";
 import { connect } from "react-redux";
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -42,7 +43,7 @@ ReactDOM.render(
   <Provider store={store}>
     <Router>
       <Route exact path="/login" component={Registration} />
-      <Route path="/protected" component={App} />
+      <Route exact path="/protected" component={App} />
     </Router>
   </Provider>,
   document.getElementById("root")
